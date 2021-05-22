@@ -109,6 +109,7 @@ def wochentag(t):
     if(stunde==16 and minute==45 and sekunde < 0.2):
         os.system("start 上课.vbs")
     if(stunde==12 and minute==35 and sekunde < 0.2):
+        os.system("革命不是请客吃饭.exe")
         os.system("start 午休.vbs")
     if(stunde==13 and minute==40 and sekunde < 0.2):
         os.system("start 伴随我们快乐成长.exe")
