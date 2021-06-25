@@ -9,7 +9,7 @@ import os
 
 Saturdays=['None','None','None','None','None','语文','语文','道法','数学']
 Sundays=['None','None','None','None','None','道法','道法','历史','历史']
-
+FFFF=True
 
 def jump(distanz, winkel=0):
     penup()
@@ -31,7 +31,7 @@ def hand(laenge, spitze):
 
 def make_hand_shape(name, laenge, spitze):
     reset()
-    jump(-laenge*0.15)
+    jump(-laenge*0.055)
     begin_poly()
     hand(laenge, spitze)
     end_poly()
@@ -79,6 +79,8 @@ def setup():
     writer.bk(85)
 
 def wochentag(t):
+    global FFFF
+
     wochentag = ["周一", "周二", "周三",
         "周四", "周五", "周六", "周日"]
     today=wochentag[t.weekday()]
@@ -86,51 +88,133 @@ def wochentag(t):
     minute = int(t.minute + sekunde/60.0)
     stunde = int(t.hour + minute/60.0)
     #print(sekunde,minute,stunde)
-    if(stunde==7 and minute==15 and sekunde < 0.2):
+    if(stunde==7 and minute==15 and sekunde < 0.05 and FFFF):
         os.system("start 上课.vbs")
-    if(stunde==7 and minute==45 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==7 and minute==15 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==7 and minute==45 and sekunde < 0.05 and FFFF):
         os.system("start 上课.vbs")
-    if(stunde==8 and minute==35 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==7 and minute==45 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==8 and minute==35 and sekunde < 0.05 and FFFF):
         os.system("start 上课.vbs")
-    if(stunde==9 and minute==15 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==8 and minute==35 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==9 and minute==15 and sekunde < 0.05 and FFFF):
         os.system("start 眼保健操.vbs")
-    if(stunde==9 and minute==40 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==9 and minute==15 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==9 and minute==40 and sekunde < 0.05 and FFFF):
         os.system("start 上课.vbs")
-    if(stunde==10 and minute==30 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==9 and minute==40 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==10 and minute==30 and sekunde < 0.05 and FFFF):
         os.system("start 上课.vbs")
-    if(stunde==14 and minute==0 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==10 and minute==30 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==14 and minute==0 and sekunde < 0.05 and FFFF):
         os.system("start 上课.vbs")
-    if(stunde==14 and minute==0 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==14 and minute==0 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==14 and minute==55 and sekunde < 0.05 and FFFF):
         os.system("start 上课.vbs")
-    if(stunde==14 and minute==55 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==14 and minute==55 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==15 and minute==50 and sekunde < 0.05 and FFFF):
         os.system("start 上课.vbs")
-    if(stunde==15 and minute==50 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==15 and minute==50 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==16 and minute==45 and sekunde < 0.05 and FFFF):
         os.system("start 上课.vbs")
-    if(stunde==16 and minute==45 and sekunde < 0.2):
-        os.system("start 上课.vbs")
-    if(stunde==12 and minute==35 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==16 and minute==45 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==12 and minute==35 and sekunde < 0.05 and FFFF):
         os.system("革命不是请客吃饭.exe")
         os.system("start 午休.vbs")
-    if(stunde==13 and minute==40 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==12 and minute==35 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==13 and minute==40 and sekunde < 0.05 and FFFF):
         os.system("start 希望寄托在你们身上.exe")
-    if(stunde==8 and minute==25 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==13 and minute==40 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==8 and minute==25 and sekunde < 0.05 and FFFF):
         os.system("start 下课.vbs")
-    if(stunde==9 and minute==15 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==8 and minute==25 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==9 and minute==15 and sekunde < 0.05 and FFFF):
         os.system("start 下课.vbs")
-    if(stunde==10 and minute==20 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==9 and minute==15 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==10 and minute==20 and sekunde < 0.05 and FFFF):
         os.system("start 下课.vbs")
-    if(stunde==11 and minute==10 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==10 and minute==20 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==11 and minute==10 and sekunde < 0.05 and FFFF):
         os.system("start 下课.vbs")
-    if(stunde==11 and minute==35 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==11 and minute==10 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==11 and minute==35 and sekunde < 0.05 and FFFF):
         os.system("start 下课.vbs")
-    if(stunde==14 and minute==45 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==11 and minute==35 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==14 and minute==45 and sekunde < 0.05 and FFFF):
         os.system("start 下课.vbs")
-    if(stunde==15 and minute==40 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==14 and minute==45 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==15 and minute==40 and sekunde < 0.05 and FFFF):
         os.system("start 下课.vbs")
-    if(stunde==16 and minute==35 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==15 and minute==40 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==16 and minute==35 and sekunde < 0.05 and FFFF):
         os.system("start 下课.vbs")
-    if(stunde==17 and minute==30 and sekunde < 0.2):
+        FFFF=False
+    if(stunde==16 and minute==35 and sekunde > 30):
+        FFFF=True
+
+    if(stunde==17 and minute==30 and sekunde < 0.05 and FFFF):
         os.system("start 下课.vbs")
+        FFFF=False
+    if(stunde==17 and minute==30 and sekunde > 30):
+        FFFF=True
+
     if(today=='周六'):
         if(stunde==7 and minute>=15 and minute<40):
             title('当前：早读')
@@ -229,7 +313,7 @@ def datum(z):
     j = z.year
     m = monat[z.month - 1]
     t = z.day
-    return "%s %d %d" % (m, t, j)
+    return "%d %s %d" % (j, m, t)
 
 def tick():
     t = datetime.today()
