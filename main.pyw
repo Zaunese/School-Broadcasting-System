@@ -7,8 +7,16 @@ from turtle import *
 from datetime import datetime
 import os
 
-Saturdays=['None','None','None','None','None','语文','语文','道法','数学']
-Sundays=['None','None','None','None','None','道法','道法','历史','历史']
+plans=[
+    ['语文','数学','信息','历史','地理','语文','数学','英语','英语'],
+    ['语文','数学','英语','地理','信息','语文','道法','数学','英语'],
+    ['语文','数学','英语','地理','信息','语文','道法','数学','英语'],
+    ['语文','数学','英语','地理','信息','语文','道法','数学','英语'],
+    ['语文','数学','英语','地理','信息','语文','道法','数学','英语'],
+    ['语文','数学','英语','地理','信息','语文','道法','数学','英语'],
+    ['语文','数学','英语','地理','信息','道法','语文','数学','历史']
+]
+
 FFFF=True
 
 def jump(distanz, winkel=0):
@@ -83,7 +91,8 @@ def wochentag(t):
 
     wochentag = ["周一", "周二", "周三",
         "周四", "周五", "周六", "周日"]
-    today=wochentag[t.weekday()]
+    wkd=t.weekday()
+    today=wochentag[wkd]
     sekunde = int(t.second + t.microsecond*0.000001)
     minute = int(t.minute + sekunde/60.0)
     stunde = int(t.hour + minute/60.0)
@@ -149,7 +158,7 @@ def wochentag(t):
         FFFF=True
 
     if(stunde==12 and minute==35 and sekunde < 0.05 and FFFF):
-        os.system("革命不是请客吃饭.exe")
+        os.system("start 革命不是请客吃饭.exe")
         os.system("start 午休.vbs")
         FFFF=False
     if(stunde==12 and minute==35 and sekunde > 30):
@@ -215,96 +224,51 @@ def wochentag(t):
     if(stunde==17 and minute==30 and sekunde > 30):
         FFFF=True
 
-    if(today=='周六'):
-        if(stunde==7 and minute>=15 and minute<40):
-            title('当前：早读')
-        if(stunde==7 and minute>=40 and minute<45):
-            title('当前：早读下课')
-        if((stunde==7 and minute>=45)or(stunde==8 and minute<25)):
-            title('当前：1'+Saturdays[0])
-        if(stunde==8 and minute>=25 and minute<35):
-            title('当前：1'+Saturdays[0]+'下课')
-        if((stunde==8 and minute>=35)or(stunde==9 and minute<15)):
-            title('当前：2'+Saturdays[1])
-        if(stunde==9 and minute>=15 and minute<40):
-            title('当前：跑操')
-        if((stunde==9 and minute>=40)or(stunde==10 and minute<20)):
-            title('当前：3'+Saturdays[2])
-        if(stunde==10 and minute>=20 and minute<30):
-            title('当前：3'+Saturdays[2]+'下课')
-        if((stunde==10 and minute>=30)or(stunde==11 and minute<10)):
-            title('当前：4'+Saturdays[3])
-        if(stunde==11 and minute>=10 and minute<35):
-            title('当前：5'+Saturdays[4])
-        if((stunde==11 and minute>=35)or(stunde==12 and minute<35)):
-            title('当前：午饭')
-        if((stunde==12 and minute>=35)or(stunde==13 and minute<40)):
-            title('当前：午读')
-        if(stunde==13 and minute>=40 and minute<50):
-            title('当前：入校')
-        if(stunde==13 and minute>=50):
-            title('当前：预备')
-        if(stunde==14 and minute>=0 and minute<45):
-            title('当前：6'+Saturdays[5])
-        if(stunde==14 and minute>=45 and minute<55):
-            title('当前：6'+Saturdays[5]+'下课')
-        if((stunde==14 and minute>=55)or(stunde==15 and minute<40)):
-            title('当前：7'+Saturdays[6])
-        if(stunde==15 and minute>=40 and minute<50):
-            title('当前：跑操')
-        if((stunde==15 and minute>=50)or(stunde==16 and minute<35)):
-            title('当前：8'+Saturdays[7])
-        if(stunde==16 and minute>=35 and minute<45):
-            title('当前：8'+Saturdays[7]+'下课')
-        if((stunde==16 and minute>=45)or(stunde==17 and minute<30)):
-            title('当前：9'+Saturdays[8])
-        if((stunde==17 and minute>=30) or stunde>17):
-            title('当前：晚自修')
-    elif(today=='周日'):
-        if(stunde==7 and minute>=15 and minute<40):
-            title('当前：早读')
-        if(stunde==7 and minute>=40 and minute<45):
-            title('当前：早读下课')
-        if((stunde==7 and minute>=45)or(stunde==8 and minute<25)):
-            title('当前：1'+Sundays[0])
-        if(stunde==8 and minute>=25 and minute<35):
-            title('当前：1'+Sundays[0]+'下课')
-        if((stunde==8 and minute>=35)or(stunde==9 and minute<15)):
-            title('当前：2'+Sundays[1])
-        if(stunde==9 and minute>=15 and minute<40):
-            title('当前：跑操')
-        if((stunde==9 and minute>=40)or(stunde==10 and minute<20)):
-            title('当前：3'+Sundays[2])
-        if(stunde==10 and minute>=20 and minute<30):
-            title('当前：3'+Sundays[2]+'下课')
-        if((stunde==10 and minute>=30)or(stunde==11 and minute<10)):
-            title('当前：4'+Sundays[3])
-        if(stunde==11 and minute>=10 and minute<35):
-            title('当前：5'+Sundays[4])
-        if((stunde==11 and minute>=35)or(stunde==12 and minute<35)):
-            title('当前：午饭')
-        if((stunde==12 and minute>=35)or(stunde==13 and minute<40)):
-            title('当前：午读')
-        if(stunde==13 and minute>=40 and minute<50):
-            title('当前：入校')
-        if(stunde==13 and minute>=50):
-            title('当前：预备')
-        if(stunde==14 and minute>=0 and minute<45):
-            title('当前：6'+Sundays[5])
-        if(stunde==14 and minute>=45 and minute<55):
-            title('当前：6'+Sundays[5]+'下课')
-        if((stunde==14 and minute>=55)or(stunde==15 and minute<40)):
-            title('当前：7'+Sundays[6])
-        if(stunde==15 and minute>=40 and minute<50):
-            title('当前：跑操')
-        if((stunde==15 and minute>=50)or(stunde==16 and minute<35)):
-            title('当前：8'+Sundays[7])
-        if(stunde==16 and minute>=35 and minute<45):
-            title('当前：8'+Sundays[7]+'下课')
-        if((stunde==16 and minute>=45)or(stunde==17 and minute<30)):
-            title('当前：9'+Sundays[8])
-        if((stunde==17 and minute>=30) or stunde>17):
-            title('当前：晚自修')
+    if(stunde==7 and minute>=15 and minute<40):
+        title('当前：早读')
+    if(stunde==7 and minute>=40 and minute<45):
+        title('当前：早读下课')
+    if((stunde==7 and minute>=45)or(stunde==8 and minute<25)):
+        title('当前：1'+plans[wkd][0])
+    if(stunde==8 and minute>=25 and minute<35):
+        title('当前：1'+plans[wkd][0]+'下课')
+    if((stunde==8 and minute>=35)or(stunde==9 and minute<15)):
+        title('当前：2'+plans[wkd][1])
+    if(stunde==9 and minute>=15 and minute<40):
+        title('当前：跑操')
+    if((stunde==9 and minute>=40)or(stunde==10 and minute<20)):
+        title('当前：3'+plans[wkd][2])
+    if(stunde==10 and minute>=20 and minute<30):
+        title('当前：3'+plans[wkd][2]+'下课')
+    if((stunde==10 and minute>=30)or(stunde==11 and minute<10)):
+        title('当前：4'+plans[wkd][3])
+    if(stunde==11 and minute>=10 and minute<35):
+        title('当前：5'+plans[wkd][4])
+    if((stunde==11 and minute>=35)or(stunde==12 and minute<35)):
+        title('当前：午饭')
+    if((stunde==12 and minute>=35)or(stunde==13 and minute<40)):
+        title('当前：午读')
+    if(stunde==13 and minute>=40 and minute<50):
+        title('当前：入校')
+    if(stunde==13 and minute>=50):
+        title('当前：预备')
+    if(stunde==14 and minute>=0 and minute<45):
+        title('当前：6'+plans[wkd][5])
+    if(stunde==14 and minute>=45 and minute<55):
+        title('当前：6'+plans[wkd][5]+'下课')
+    if((stunde==14 and minute>=55)or(stunde==15 and minute<40)):
+        title('当前：7'+plans[wkd][6])
+    if(stunde==15 and minute>=40 and minute<50):
+        title('当前：跑操')
+    if((stunde==15 and minute>=50)or(stunde==16 and minute<35)):
+        title('当前：8'+plans[wkd][7])
+    if(stunde==16 and minute>=35 and minute<45):
+        title('当前：8'+plans[wkd][7]+'下课')
+    if((stunde==16 and minute>=45)or(stunde==17 and minute<30)):
+        title('当前：9'+plans[wkd][8])
+    if((stunde==17 and minute>=30) or stunde>17):
+        title('当前：晚自修')
+
     return today
 
 def datum(z):
