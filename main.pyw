@@ -259,7 +259,7 @@ def wochentag(t):
     if((stunde==14 and minute>=55)or(stunde==15 and minute<40)):
         title('当前：7'+plans[wkd][6])
     if(stunde==15 and minute>=40 and minute<50):
-        title('当前：跑操')
+        title('当前：7'+plans[wkd][6]+'下课')
     if((stunde==15 and minute>=50)or(stunde==16 and minute<35)):
         title('当前：8'+plans[wkd][7])
     if(stunde==16 and minute>=35 and minute<45):
